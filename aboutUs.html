@@ -17,7 +17,7 @@
       href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
-    <link href="style.css" rel="stylesheet" />
+    <!-- <link href="style.css" rel="stylesheet" /> -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link
@@ -92,11 +92,11 @@
                         primary: "#205595",
                         secondary: "#10B981",
                         accent: "#F59E0B",
-                        dark: {
+                   /*      dark: {
                             900: "#0F172A",
                             800: "#1E293B",
                             700: "#334155",
-                        },
+                        }, */
                     },
                     animation: {
                         'float': 'float 6s ease-in-out infinite',
@@ -127,10 +127,10 @@
         -webkit-backdrop-filter: blur(10px);
         border: 1px solid rgba(255, 255, 255, 0.18);
       }
-
+/* 
       .dark .glassmorphism {
         background: rgba(30, 41, 59, 0.7);
-      }
+      } */
 
       @keyframes float {
         0%,
@@ -312,7 +312,7 @@
     <div class="rt-cursor-dot-outline-2"></div>
     <div class="rt-cursor-dot-2"></div>
     <div class="scrollup right">
-      <svg
+     <!--  <svg
         height="20px"
         id="Layer_1"
         version="1.1"
@@ -321,14 +321,14 @@
         xml:space="preserve"
         xmlns="http://www.w3.org/2000/svg"
         xmlns:xlink="http://www.w3.org/1999/xlink"
-      >
+      > -->
         <polygon
           points="396.6,352 416,331.3 256,160 96,331.3 115.3,352 256,201.5 "
         />
       </svg>
     </div>
     <div class="apptek-website-layout full-width body-inner">
-      <div id="header" class="rt-dark rt-submenu-light">
+      <div id="header">
         <div class="rt-header-inner">
             <div data-elementor-type="section" data-elementor-id="1014" class="elementor elementor-1014">
                 <section
@@ -435,7 +435,7 @@
                                                             </div>
                                                         </header>
                                                         <header class="rt-header logo-left  style2 mobile-header-style1">
-                                                            <div class="rt-header-holder mobile-logo-column">
+                                                            <!-- <div class="rt-header-holder mobile-logo-column">
                                                                 <div class="logo-holder">
                                                                     <div class="logo"><a href="https://smartbooks.ng/"><span class="logo-default"><img src="images/logo.png" alt="logo" width="126" height="36"></span></a></div>
                                                                 </div>
@@ -486,7 +486,7 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                            </div>
+                                                            </div> -->
                                                         </header>
                                                         <nav id="mobile-menu" class="side-panel">
                                                             <header class="side-panel-header">
@@ -1077,6 +1077,7 @@
                 border-radius: 50%;
                 pointer-events: none;
                 animation: float 8s ease-in-out infinite;
+                will-change: transform;
               }
 
               /* Parallax effect */
@@ -1090,6 +1091,7 @@
               .parallax-image {
                 transform: translateZ(-1px) scale(1.5);
                 transform-origin: center center;
+                will-change: transform;
               }
 
               /* Button hover effects */
@@ -1108,87 +1110,147 @@
               }
             </style>
 
+            <!-- Minimal scaffolding for optional features -->
+            <!-- Particles container -->
+            <div id="particles-container" class="pointer-events-none absolute inset-0 -z-10"></div>
+
+            <!-- Theme toggle (top-right) -->
+            <div class="fixed top-4 right-4 z-50">
+              <label class="inline-flex items-center gap-2">
+                <input type="checkbox" id="theme-toggle" />
+                <span class="text-sm">Dark mode</span>
+              </label>
+            </div>
+
+            <!-- Hidden pricing toggle scaffold to satisfy initializers without UI impact -->
+            <div class="hidden" aria-hidden="true">
+              <div class="pricing-toggle-group">
+                <button class="pricing-toggle active" data-plan="monthly" type="button">Monthly</button>
+                <button class="pricing-toggle" data-plan="annual" type="button">Annual</button>
+              </div>
+              <div class="monthly-price">₦0</div>
+              <div class="annual-price hidden">₦0</div>
+            </div>
+
             <script>
               document.addEventListener("DOMContentLoaded", function () {
                 // Create interactive particles
                 const particlesContainer = document.getElementById(
                   "particles-container"
                 );
-                const particleCount = 30;
+                const particleCount = 15; // reduced for performance
 
-                for (let i = 0; i < particleCount; i++) {
-                  const particle = document.createElement("div");
-                  particle.classList.add("particle");
+                if (particlesContainer) {
+                  for (let i = 0; i < particleCount; i++) {
+                    const particle = document.createElement("div");
+                    particle.classList.add("particle");
 
-                  // Random properties
-                  const size = Math.random() * 5 + 2;
-                  const posX = Math.random() * 100;
-                  const posY = Math.random() * 100;
-                  const delay = Math.random() * 5;
-                  const duration = Math.random() * 10 + 5;
-                  const colors = [
-                    "bg-white",
-                    "bg-secondary",
-                    "bg-accent",
-                    "bg-primary",
-                  ];
-                  const color =
-                    colors[Math.floor(Math.random() * colors.length)];
+                    // Random properties
+                    const size = Math.random() * 5 + 2;
+                    const posX = Math.random() * 100;
+                    const posY = Math.random() * 100;
+                    const delay = Math.random() * 5;
+                    const duration = Math.random() * 10 + 5;
+                    const colors = [
+                      "bg-white",
+                      "bg-secondary",
+                      "bg-accent",
+                      "bg-primary",
+                    ];
+                    const color =
+                      colors[Math.floor(Math.random() * colors.length)];
 
-                  particle.style.width = `${size}px`;
-                  particle.style.height = `${size}px`;
-                  particle.style.left = `${posX}%`;
-                  particle.style.top = `${posY}%`;
-                  particle.style.opacity = Math.random() * 0.3 + 0.1;
-                  particle.style.animationDelay = `${delay}s`;
-                  particle.style.animationDuration = `${duration}s`;
-                  particle.classList.add(color);
+                    particle.style.width = `${size}px`;
+                    particle.style.height = `${size}px`;
+                    particle.style.left = `${posX}%`;
+                    particle.style.top = `${posY}%`;
+                    particle.style.opacity = Math.random() * 0.3 + 0.1;
+                    particle.style.animationDelay = `${delay}s`;
+                    particle.style.animationDuration = `${duration}s`;
+                    particle.classList.add(color);
 
-                  particlesContainer.appendChild(particle);
+                    particlesContainer.appendChild(particle);
+                  }
+                } else {
+                  console.warn("particles-container not found; skipping particle init");
                 }
 
-                // Parallax effect on mouse move
-                const parallaxImage = document.querySelector(".parallax-image");
-                document.addEventListener("mousemove", (e) => {
-                  const x = e.clientX / window.innerWidth;
-                  const y = e.clientY / window.innerHeight;
-                  parallaxImage.style.transform = `translateX(${
-                    x * 20
-                  }px) translateY(${y * 20}px) translateZ(-1px) scale(1.5)`;
+    // Parallax effect on mouse move
+    const parallaxImage = document.querySelector(".parallax-image");
+    document.addEventListener("mousemove", (e) => {
+      const x = e.clientX / window.innerWidth;
+      const y = e.clientY / window.innerHeight;
+      if (parallaxImage) {
+        parallaxImage.style.transform = `translateX(${x * 20}px) translateY(${y * 20}px) translateZ(-1px) scale(1.5)`;
+      }
+    });
+
+    // Scroll indicator click handler
+    const scrollIndicator = document.querySelector(".scroll-indicator");
+    if (scrollIndicator) {
+      scrollIndicator.addEventListener("click", () => {
+        window.scrollBy({
+          top: window.innerHeight - 100,
+          behavior: "smooth",
+        });
+      });
+    }
+
+                // Performance: unify mousemove handlers with requestAnimationFrame
+                const particleNodes = particlesContainer
+                  ? Array.from(particlesContainer.querySelectorAll('.particle'))
+                  : [];
+
+                // Cache approximate centers once to avoid layout reads each frame
+                const centers = particleNodes.map((el) => {
+                  const rect = el.getBoundingClientRect();
+                  return { x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 };
                 });
 
-                // Scroll indicator click handler
-                const scrollIndicator =
-                  document.querySelector(".scroll-indicator");
-                scrollIndicator.addEventListener("click", () => {
-                  window.scrollBy({
-                    top: window.innerHeight - 100,
-                    behavior: "smooth",
-                  });
-                });
+                let mouseX = 0, mouseY = 0, rafScheduled = false;
 
-                // Interactive particles on mouse move
-                document.addEventListener("mousemove", (e) => {
-                  const particles = document.querySelectorAll(".particle");
-                  particles.forEach((particle) => {
-                    const x = e.clientX;
-                    const y = e.clientY;
-                    const rect = particle.getBoundingClientRect();
-                    const particleX = rect.left + rect.width / 2;
-                    const particleY = rect.top + rect.height / 2;
-                    const distance = Math.sqrt(
-                      Math.pow(x - particleX, 2) + Math.pow(y - particleY, 2)
-                    );
+                function onMouseMove(e) {
+                  mouseX = e.clientX;
+                  mouseY = e.clientY;
+                  if (!rafScheduled) {
+                    rafScheduled = true;
+                    requestAnimationFrame(tick);
+                  }
+                }
 
-                    if (distance < 150) {
-                      const angle = Math.atan2(y - particleY, x - particleX);
-                      const force = (150 - distance) / 50;
-                      particle.style.transform = `translate(${
-                        Math.cos(angle) * force
-                      }px, ${Math.sin(angle) * force}px)`;
+                function tick() {
+                  // Parallax update
+                  if (parallaxImage) {
+                    const x = mouseX / window.innerWidth;
+                    const y = mouseY / window.innerHeight;
+                    parallaxImage.style.transform = `translateX(${x * 20}px) translateY(${y * 20}px) translateZ(-1px) scale(1.5)`;
+                  }
+
+                  // Particle update: update a subset per frame to limit work
+                  const maxUpdates = 15;
+                  const stride = Math.max(1, Math.ceil(particleNodes.length / maxUpdates));
+                  for (let i = 0; i < particleNodes.length; i += stride) {
+                    const el = particleNodes[i];
+                    const c = centers[i];
+                    if (!c) continue;
+                    const dx = mouseX - c.x;
+                    const dy = mouseY - c.y;
+                    const dist = Math.hypot(dx, dy);
+                    if (dist < 150) {
+                      const angle = Math.atan2(dy, dx);
+                      const force = (150 - dist) / 50;
+                      el.style.transform = `translate(${Math.cos(angle) * force}px, ${Math.sin(angle) * force}px)`;
+                    } else {
+                      // relax back when far
+                      el.style.transform = 'translate(0px, 0px)';
                     }
-                  });
-                });
+                  }
+
+                  rafScheduled = false;
+                }
+
+                // Attach a single mousemove listener
+                document.addEventListener('mousemove', onMouseMove, { passive: true });
               });
             </script>
 
@@ -2820,18 +2882,23 @@
         });
 
         // Theme toggle functionality
-        document.addEventListener("DOMContentLoaded", function () {
+       /*  document.addEventListener("DOMContentLoaded", function () {
             const themeToggle = document.getElementById("theme-toggle");
             const html = document.documentElement;
 
+            if (!themeToggle) {
+                console.warn("theme-toggle not found; skipping theme toggle init");
+                return;
+            }
+ */
             // Check for saved preference
-            if (localStorage.getItem("theme") === "dark") {
+            /* if (localStorage.getItem("theme") === "dark") {
                 html.classList.add("dark");
                 themeToggle.checked = true;
-            }
+            } */
 
             // Toggle handler
-            themeToggle.addEventListener("change", function () {
+        /*     themeToggle.addEventListener("change", function () {
                 if (this.checked) {
                     html.classList.add("dark");
                     localStorage.setItem("theme", "dark");
@@ -2840,10 +2907,10 @@
                     localStorage.setItem("theme", "light");
                 }
             });
-        });
+        }); */
 
         // Toggle between monthly/annual pricing
-        function initializePricingToggle() {
+      /*   function initializePricingToggle() {
             const toggleButtons = document.querySelectorAll('.pricing-toggle');
             const monthlyPrices = document.querySelectorAll('.monthly-price');
             const annualPrices = document.querySelectorAll('.annual-price');
@@ -2851,8 +2918,8 @@
             if (toggleButtons.length === 0) {
                 console.warn('No pricing toggle buttons found');
                 return;
-            }
-
+            } */
+/* 
             toggleButtons.forEach(button => {
                 button.addEventListener('click', (e) => {
                     e.preventDefault();
@@ -2887,14 +2954,14 @@
                     }
                 });
             });
-        }
-
+        } */
+/* 
         // Initialize pricing toggle when DOM is ready
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', initializePricingToggle);
         } else {
             initializePricingToggle();
-        }
+        } */
     </script>
   </body>
 </html>
