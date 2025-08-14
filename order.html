@@ -1,0 +1,1842 @@
+<!doctype html>
+<html lang="en-US">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description"
+        content="SmartBooks - Nigeria's premier offline digital textbook series for Primary 1 to SS3. Interactive learning with 15-30 subjects, voice tutoring, games, and AI assistance. Works without internet. Perfect for students, parents, teachers, and schools.">
+    <title>SmartBooks - Nigeria's Premier Offline Digital Textbook Series | Interactive Learning for Primary & Secondary
+        Schools</title>
+        <link rel="stylesheet" href="style.css" />
+    <meta name='robots' content='max-image-preview:large' />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js">
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#205595",
+                        secondary: "#10B981",
+                        accent: "#F59E0B",
+                        dark: {
+                            900: "#0F172A",
+                            800: "#1E293B",
+                            700: "#334155",
+                        },
+                    },
+                    fontFamily: {
+                        nunito: ["Nunito", "sans-serif"],
+                        inter: ["Inter", "sans-serif"],
+                    },
+                },
+            },
+        };
+    </script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+ <!--    <link rel='stylesheet' id='apptek-custom-css' href='images/apptek-custom6470.css' media='all' /> -->
+    <!-- <link rel='stylesheet' id='apptek-menu-css' href='images/header-menu6470.css' media='all' /> -->
+   <!-- link data-optimized="1" rel='stylesheet' id='apptek-fonts-css'
+        href='images/d4641efd01f02f1562de7b5e4ef75fc43118.css' media='all' /> -->
+    <!-- <link data-optimized="1" rel='stylesheet' id='apptek-style-css'
+        href='images/05e848a47fea6114259ae04d3a4ff6392fea.css' media='all' /> -->
+    <link data-optimized="1" rel='stylesheet' id='elementor-frontend-css'
+        href='images/3edf7885127234fb86a2414c8c7692693b08.css' media='all' />
+    <link data-optimized="1" rel='stylesheet' id='elementor-post-7-css'
+        href='images/df591dba6acdb386ede380e77e188ef8bca8.css' media='all' />
+    <link data-optimized="1" rel='stylesheet' id='elementor-post-883-css'
+        href='images/28d5c4a8580c58d06f110fa3b1728208b557.css' media='all' />
+    <script src="images/jquery.minf43b.js" id="jquery-core-js"></script>
+
+    <link rel="icon" href="images/fav-icon.png" sizes="32x32" />
+    <link rel="icon" href="images/fav-icon.png" sizes="192x192" />
+    <link rel="apple-touch-icon" href="images/fav-icon.png" />
+    <meta name="msapplication-TileImage" content="images/fav-icon.png" />
+    <style>
+          .glassmorphism {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+
+        .dark .glassmorphism {
+            background: rgba(30, 41, 59, 0.7);
+        }
+
+        .order-progress {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            background-color: #f8f9fa;
+            border-bottom: 1px solid #e1e4e8;
+            margin-bottom: 20px;
+        }
+
+        .step {
+            display: flex;
+            align-items: center;
+            color: #6c757d;
+            position: relative;
+            flex: 1;
+            justify-content: center;
+        }
+
+        .step:not(:last-child):after {
+            content: '';
+            position: absolute;
+            left: 60%;
+            width: 80%;
+            height: 2px;
+            background-color: #dee2e6;
+            z-index: 1;
+        }
+
+        .step.active {
+            color: #007bff;
+            font-weight: 500;
+        }
+
+        .step.active .step-number {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .step-number {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background-color: #dee2e6;
+            color: #6c757d;
+            font-size: 12px;
+            margin-right: 8px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .step-label {
+            font-size: 14px;
+        }
+
+        /* Mobile styles */
+        @media (max-width: 768px) {
+            .order-progress {
+                padding: 12px 5%;
+            }
+
+            .step-label {
+                display: none;
+            }
+
+            .step:not(:last-child):after {
+                left: 50%;
+                width: 100%;
+            }
+
+            .step {
+                justify-content: center;
+            }
+
+            .step-number {
+                margin-right: 0;
+                width: 16px;
+                height: 16px;
+                font-size: 0;
+            }
+
+            .step.active .step-number:after {
+                content: '';
+                display: block;
+                width: 8px;
+                height: 8px;
+                background-color: white;
+                border-radius: 50%;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        .grand-total {
+            font-weight: bold;
+            font-size: 1.2em;
+            border-top: 1px solid #ddd;
+            padding-top: 10px;
+        }
+
+        .discount {
+            color: #e63946;
+        }
+
+        .shipping-info {
+            border: 1px solid #eee;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .method-option {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .method-option:hover {
+            border-color: #205595;
+        }
+
+        .method-option.selected {
+            border-color: #205595;
+            background: rgba(32, 85, 149, 0.05);
+        }
+
+        .edit-btn {
+            background: none;
+            border: none;
+            color: #0066cc;
+            cursor: pointer;
+            font-size: 0.9em;
+        }
+
+        .payment-method {
+            display: none;
+        }
+
+        .payment-method.active {
+            display: block;
+        }
+
+        .product-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-primary {
+            background-color: #205595;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #16437e;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-outline {
+            border: 1px solid #205595;
+            color: #205595;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline:hover {
+            background-color: rgba(32, 85, 149, 0.1);
+        }
+
+        .form-input {
+            border: 1px solid #ddd;
+            padding: 12px 15px;
+            border-radius: 8px;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus {
+            border-color: #205595;
+            box-shadow: 0 0 0 3px rgba(32, 85, 149, 0.1);
+            outline: none;
+        }
+
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .quantity-btn {
+            background-color: #f8f9fa;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .quantity-btn:hover {
+            background-color: #e9ecef;
+        }
+
+        .quantity-input {
+            width: 50px;
+            text-align: center;
+            border: none;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        .order-summary-card {
+            position: sticky;
+            top: 20px;
+        }
+    </style>
+</head>
+
+<body
+    class="wp-singular page-template page-template-elementor_header_footer page page-id-883 wp-embed-responsive wp-theme-apptek apptek apptek-apptek elementor-default elementor-template-full-width elementor-kit-7 elementor-page elementor-page-883">
+    <div class="overlay"></div>
+    <div class="rt-cursor-dot-outline-2"></div>
+    <div class="rt-cursor-dot-2"></div>
+    <div class="scrollup right">
+        <svg height="20px" id="Layer_1" version="1.1" viewBox="0 0 512 512" width="20px" xml:space="preserve"
+            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <polygon points="396.6,352 416,331.3 256,160 96,331.3 115.3,352 256,201.5 " />
+        </svg>
+    </div>
+    <div class="apptek-website-layout full-width body-inner">
+        <div id="header" class="rt-dark rt-submenu-light">
+            <div class="rt-header-inner">
+                <div data-elementor-type="section" data-elementor-id="1014" class="elementor elementor-1014">
+                    <section
+                        class="elementor-section elementor-top-section elementor-element elementor-element-ccf09d1 elementor-section-full_width elementor-section-stretched elementor-section-height-default elementor-section-height-default"
+                        data-id="ccf09d1" data-element_type="section"
+                        data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;}">
+                        <div class="elementor-container elementor-column-gap-default">
+                            <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-d8951c8"
+                                data-id="d8951c8" data-element_type="column">
+                                <div class="elementor-widget-wrap elementor-element-populated">
+                                    <section
+                                        class="elementor-section elementor-inner-section elementor-element elementor-element-209e906 elementor-section-boxed elementor-section-height-default elementor-section-height-default"
+                                        data-id="209e906" data-element_type="section">
+                                        <div class="elementor-container elementor-column-gap-default">
+                                            <div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-a68696b"
+                                                data-id="a68696b" data-element_type="column">
+                                                <div class="elementor-widget-wrap elementor-element-populated">
+                                                    <div class="elementor-element elementor-element-e8b016d elementor-widget elementor-widget-radiant-header_custom_menu"
+                                                        data-id="e8b016d" data-element_type="widget"
+                                                        data-widget_type="radiant-header_custom_menu.default">
+                                                        <div class="elementor-widget-container">
+                                                            <header
+                                                                class="rt-header logo-left  style2 mobile-header-style1 fixed">
+                                                                <div
+                                                                    class="rt-header-holder rt-box-holder mobile-logo-column">
+                                                                    <div class="logo-holder">
+                                                                        <div class="logo"><a
+                                                                                href="https://apptek.radiantthemes.com/"><span
+                                                                                    class="logo-default"><img
+                                                                                        src="images/logo.png" alt="logo"
+                                                                                        width="300"
+                                                                                        height="auto"></span></a></div>
+                                                                    </div>
+                                                                    <div class="rt-navbar-menu menu-center">
+                                                                        <nav
+                                                                            class="apr-nav-menu--main apr-nav-menu--layout-horizontal hover-underline e--pointer-none">
+                                                                            <ul id="menu-main-menu" class="mega-menu">
+                                                                                <li id="menu-item-43524"
+                                                                                    class=" menu-item menu-item-type-post_type menu-item-object-mega_menu menu-item-43524 menu-item-has-children  menu-item-mega-parent">
+                                                                                    <a href="index.html"
+                                                                                        data-description="">Home</a>
+                                                                                </li>
+                                                                                <li id="menu-item-36929"
+                                                                                    class=" menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-36929 rt-dropdown">
+                                                                                    <a href="features.html"
+                                                                                        data-description="">Features</a>
+                                                                                </li>
+                                                                                <li id="menu-item-43071"
+                                                                                    class=" menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-43071 rt-dropdown">
+                                                                                    <a href="aboutUs.html"
+                                                                                        data-description="">About Us</a>
+                                                                                </li>
+                                                                                <li id="menu-item-36940"
+                                                                                    class=" menu-item menu-item-type-custom menu-item-object-custom menu-item-36940">
+                                                                                    <a href="order.html"
+                                                                                        data-description="">Order</a>
+                                                                                </li>                                
+                                                                                <li id="menu-item-36931"
+                                                                                    class=" menu-item menu-item-type-post_type menu-item-object-page menu-item-36931">
+                                                                                    <a href="contact.html"
+                                                                                        data-description="">Contact</a>
+                                                                                </li>
+                                                                            </ul>
+                                                                        </nav>
+                                                                    </div>
+                                                                    <div class="rt-search-cart-holder">
+                                                                        <div class="rt-search-cart-inner-holder"></div>
+                                                                        <div class="contact_holder">
+                                                                            <div class="contact_icon">
+                                                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                                                    width="24" height="24"
+                                                                                    viewBox="0 0 24 24" fill="none"
+                                                                                    stroke="#FF5F55" stroke-width="2"
+                                                                                    stroke-linecap="round"
+                                                                                    stroke-linejoin="round"
+                                                                                    class="feather feather-phone-call">
+                                                                                    <path
+                                                                                        d="M15.05 5A5 5 0 0 1 19 8.95M15.05 1A9 9 0 0 1 23 8.94m-1 7.98v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                                                                                    </path>
+                                                                                </svg>
+                                                                            </div>
+                                                                            <div class="contact_text">
+                                                                                <span style="color: #000000;">Contact Us</span>
+                                                                                <div class="contact_no">
+                                                                                    <p style="color: #000000">(888)123-4567</p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div
+                                                                            class="radiantthemes-menu-custom-button visible-lg hidden-xs hidden-md">
+                                                                            <a class="radiantthemes-menu-custom-button-main"
+                                                                                href="order.html" target="_blank"
+                                                                                rel="nofollow">Order Now</a>
+                                                                        </div>
+                                                                        <div
+                                                                            class="menu-icon rt-mobile-hamburger rt-column hidden-lg">
+                                                                            <div class="rt-mobile-toggle-holder">
+                                                                                <div class="rt-mobile-toggle">
+                                                                                    <span></span><span></span><span></span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </header>
+                                                            <header class="rt-header logo-left  style2 mobile-header-style1">
+                                                                <div class="rt-header-holder mobile-logo-column">
+                                                                    <div class="logo-holder">
+                                                                        <div class="logo"><a href="https://smartbooks.ng/"><span class="logo-default"><img src="images/logo.png" alt="logo" width="126" height="36"></span></a></div>
+                                                                    </div>
+                                                                    <div class="rt-navbar-menu menu-center">
+                                                                        <nav class="apr-nav-menu--main apr-nav-menu--layout-horizontal hover-underline e--pointer-none">
+                                                                            <ul id="menu-main-menu-1" class="mega-menu">
+                                                                                <li class=" menu-item menu-item-type-post_type menu-item-object-mega_menu menu-item-43524 menu-item-has-children  menu-item-mega-parent">
+                                                                                    <a href="index.html" style="color: black;" data-description="">Home</a>
+                                                                                </li>
+                                                                                <li class=" menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-36929 rt-dropdown">
+                                                                                    <a href="features.html" style="color: black;" data-description="">features</a>
+                                                                                </li>
+                                                                                <li class=" menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-43071 rt-dropdown">
+                                                                                    <a href="aboutUs.html" style="color: black;" data-description="">About Us</a>
+                                                                                </li>
+                                                                                <li class=" menu-item menu-item-type-custom menu-item-object-custom menu-item-36940">
+                                                                                    <a href="order.html" style="color: black;" data-description="">Order</a>
+                                                                                </li>
+                                                                                <li class=" menu-item menu-item-type-post_type menu-item-object-page menu-item-36931">
+                                                                                    <a href="contact.html" style="color: black;" data-description="">Contact</a>
+                                                                                </li>
+                                                                            </ul>
+                                                                        </nav>
+                                                                    </div>
+                                                                    <div class="rt-search-cart-holder">
+                                                                        <div class="rt-search-cart-inner-holder"></div>
+                                                                        <div class="contact_holder">
+                                                                            <div class="contact_icon">
+                                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FF5F55" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-phone-call">
+                                                                                    <path d="M15.05 5A5 5 0 0 1 19 8.95M15.05 1A9 9 0 0 1 23 8.94m-1 7.98v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                                                                                </svg>
+                                                                            </div>
+                                                                            <div class="contact_text">
+                                                                                <span style="color: #000000">Contact Us</span>
+                                                                                <div class="contact_no">
+                                                                                    <p style="color: #000000">(888)123-4567</p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="radiantthemes-menu-custom-button visible-lg hidden-xs hidden-md">
+                                                                            <a class="radiantthemes-menu-custom-button-main" href="order.html" target="_blank" rel="nofollow">Order Now</a>
+                                                                        </div>
+                                                                        <div class="menu-icon rt-mobile-hamburger rt-column hidden-lg">
+                                                                            <div class="rt-mobile-toggle-holder">
+                                                                                <div class="rt-mobile-toggle">
+                                                                                    <span></span><span></span><span></span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </header>
+                                                            <nav id="mobile-menu" class="side-panel">
+                                                                <header class="side-panel-header">
+                                                                    <span><img data-lazyloaded="1"
+                                                                            data-placeholder-resp="126x36"
+                                                                            src="images/logo.png" alt="logo" width="300"
+                                                                            height="50"></span>
+                                                                    <div class="rt-toggle-close rt-close-btn"
+                                                                        title="Close"><svg
+                                                                            xmlns="http://www.w3.org/2000/svg"
+                                                                            version="1.1" x="0" y="0" width="12"
+                                                                            height="12" viewBox="1.1 1.1 12 12"
+                                                                            enable-background="new 1.1 1.1 12 12"
+                                                                            xml:space="preserve">
+                                                                            <path
+                                                                                d="M8.3 7.1l4.6-4.6c0.3-0.3 0.3-0.8 0-1.2 -0.3-0.3-0.8-0.3-1.2 0L7.1 5.9 2.5 1.3c-0.3-0.3-0.8-0.3-1.2 0 -0.3 0.3-0.3 0.8 0 1.2L5.9 7.1l-4.6 4.6c-0.3 0.3-0.3 0.8 0 1.2s0.8 0.3 1.2 0L7.1 8.3l4.6 4.6c0.3 0.3 0.8 0.3 1.2 0 0.3-0.3 0.3-0.8 0-1.2L8.3 7.1z">
+                                                                            </path>
+                                                                        </svg></div>
+                                                                </header>
+                                                                <div class="side-panel-inner mobile-side-panel-inner">
+                                                                    <div class="mobile-menu-top">
+                                                                        <ul id="menu-main-menu-2"
+                                                                            class="rt-mobile-menu">
+                                                                            <li
+                                                                                class=" menu-item menu-item-type-post_type menu-item-object-mega_menu menu-item-43524 menu-item-has-children  menu-item-mega-parent">
+                                                                                <a href="index.html"
+                                                                                    data-description="">Home</a>
+                                                                            </li>
+                                                                            <li
+                                                                                class=" menu-item menu-item-type-custom menu-item-object-custom menu-item-36929">
+                                                                                <a href="features.html"
+                                                                                    data-description="">Features</a>
+                                                                            </li>
+                                                                            <li
+                                                                                class=" menu-item menu-item-type-custom menu-item-object-custom menu-item-43071">
+                                                                                <a href="aboutUs.html"
+                                                                                    data-description="">About Us</a>
+                                                                            </li>
+                                                                            <li
+                                                                                class=" menu-item menu-item-type-custom menu-item-object-custom menu-item-36940">
+                                                                                <a href="order.html"
+                                                                                    data-description="">Order</a>
+                                                                            </li>
+                                                                            <li
+                                                                                class=" menu-item menu-item-type-post_type menu-item-43192">
+                                                                                <a href="contact.html"
+                                                                                    data-description="">Contact</a>
+                                                                            </li>                                                            
+                                                                        </ul>
+                                                                        <div class="rt-search-cart-holder"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </nav>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+        <main class="pt-24 pb-16">
+            <div class="container mx-auto px-4">
+                <!-- Order Progress Tracker -->
+                <!-- <div class="order-progress rounded-lg mb-8 dark:bg-dark-800 dark:border-dark-700">
+                    <div class="step active">
+                        <div class="step-number">1</div>
+                        <div class="step-label">Order Details</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-label">Payment</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-label">Confirmation</div>
+                    </div>
+                </div> -->
+    
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <!-- Left Column - Order Form -->
+                    <div class="lg:col-span-2">
+                        <div class="bg-white rounded-lg shadow-md">
+                            <h2 class="text-2xl font-bold text-dark-800 dark:text-white mb-6">Order Activation Keys</h2>
+    
+                            <div class="mb-8">
+                                <h3 class="text-lg font-semibold text-dark-700 dark:text-gray-300 mb-4">Select Product</h3>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <!-- Product Card 1 -->
+                                    <div
+                                        class="product-card bg-white border border-gray-200 rounded-lg p-6 cursor-pointer">
+                                        <div class="flex items-center mb-4">
+                                            <input type="radio" name="product" id="product1" class="mr-3" checked>
+                                            <label for="product1"
+                                                class="font-medium text-dark-800 dark:text-white">SmartBooks Basic</label>
+                                        </div>
+                                        <p class="text-gray-600 dark:text-gray-400 mb-4">Access to all core subjects for one
+                                            academic year</p>
+                                        <div class="flex justify-between items-center">
+                                            <span class="text-primary font-bold">₦35,000</span>
+                                            <span class="text-sm text-gray-500 dark:text-gray-400">per device/year</span>
+                                        </div>
+                                    </div>
+    
+                                    <!-- Product Card 2 -->
+                                    <div
+                                        class="product-card bg-white border border-gray-200 rounded-lg p-6 cursor-pointer">
+                                        <div class="flex items-center mb-4">
+                                            <input type="radio" name="product" id="product2" class="mr-3">
+                                            <label for="product2"
+                                                class="font-medium text-dark-800 dark:text-white">SmartBooks for Schools</label>
+                                        </div>
+                                        <p class="text-gray-600 dark:text-gray-400 mb-4">All Basic features plus advanced
+                                            analytics and teacher tools</p>
+                                        <div class="flex justify-between items-center">
+                                            <span class="text-primary font-bold">₦10,000 (Bulk License)</span>
+                                            <span class="text-sm text-gray-500 dark:text-gray-400">per device/year</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <div class="mb-8">
+                                <h3 class="text-lg font-semibold text-dark-700 dark:text-gray-300 mb-4">Quantity</h3>
+                                <div class="flex items-center">
+                                    <div class="quantity-selector mr-4">
+                                        <button class="quantity-btn" id="decrease-qty">-</button>
+                                        <input type="number" id="quantity" class="quantity-input" value="1" min="1">
+                                        <button class="quantity-btn" id="increase-qty">+</button>
+                                    </div>
+                                    <span class="text-gray-600 dark:text-gray-400">Number of devices</span>
+                                </div>
+                            </div>
+    
+                            <div class="mb-8">
+                                <h3 class="text-lg font-semibold text-dark-700 dark:text-gray-300 mb-4">Personal Information
+                                </h3>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                    <div>
+                                        <label for="first-name"
+                                            class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">First
+                                            Name</label>
+                                        <input type="text" id="first-name"
+                                            class="form-input dark:bg-dark-700 dark:border-dark-600" required>
+                                    </div>
+                                    <div>
+                                        <label for="last-name"
+                                            class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Last
+                                            Name</label>
+                                        <input type="text" id="last-name"
+                                            class="form-input dark:bg-dark-700 dark:border-dark-600" required>
+                                    </div>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="email"
+                                        class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email
+                                        Address</label>
+                                    <input type="email" id="email" class="form-input dark:bg-dark-700 dark:border-dark-600"
+                                        required>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="phone"
+                                        class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Phone
+                                        Number</label>
+                                    <input type="tel" id="phone" class="form-input dark:bg-dark-700 dark:border-dark-600"
+                                        required>
+                                </div>
+                                <div>
+                                    <label for="state"
+                                        class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">State</label>
+                                    <select id="state" class="form-input dark:bg-dark-700 dark:border-dark-600" required>
+                                        <option value="">Select your state</option>
+                                        <option value="Lagos">Lagos</option>
+                                        <option value="Abuja">Abuja</option>
+                                        <option value="Kano">Kano</option>
+                                        <option value="Rivers">Rivers</option>
+                                        <option value="Oyo">Oyo</option>
+                                        <!-- Add more Nigerian states as needed -->
+                                    </select>
+                                </div>
+                            </div>
+    
+                            <!-- Delivery Address Section -->
+                            <div class="bg-dark-700 rounded-lg p-6 mb-8">
+                                <h3 class="text-lg font-semibold mb-4 flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-primary" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    </svg>
+                                    Delivery Information
+                                </h3>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <!-- Shipping Address -->
+                                    <div class="border border-gray-600 rounded-lg p-4">
+                                        <h4 class="font-medium text-gray-300 mb-3 flex items-center">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none"
+                                                viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                                            </svg>
+                                            Shipping Address
+                                        </h4>
+                                        <div id="shipping-address-details">
+                                            <p class="text-white font-medium" id="delivery-name">John Doe</p>
+                                            <p class="text-gray-400" id="delivery-address">123 Education Street, Lagos
+                                                Island</p>
+                                            <p class="text-gray-400" id="delivery-city-state">Lagos, Nigeria</p>
+                                            <p class="text-gray-400" id="delivery-phone">Phone: +234 812 345 6789</p>
+                                        </div>
+                                        <button id="edit-address-btn"
+                                            class="mt-3 text-primary hover:text-primary-light text-sm font-medium flex items-center">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none"
+                                                viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                                            </svg>
+                                            Edit Address
+                                        </button>
+                                    </div>
+                                    <!-- Delivery Method -->
+                                    <div class="border border-gray-600 rounded-lg p-4">
+                                        <h4 class="font-medium text-gray-300 mb-3 flex items-center">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none"
+                                                viewBox="0 0 24 24" stroke="currentColor">
+                                                <path d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z" />
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0" />
+                                            </svg>
+                                            Delivery Method
+                                        </h4>
+                                        <div class="space-y-3">
+                                            <div class="flex items-center">
+                                                <input type="radio" id="standard-delivery" name="delivery-method"
+                                                    class="h-4 w-4 text-primary focus:ring-primary border-gray-600 bg-dark-600"
+                                                    checked>
+                                                <label for="standard-delivery" class="ml-2">
+                                                    <span class="text-white">Standard Delivery</span>
+                                                    <span class="text-gray-400 text-sm">3-5 business days •
+                                                        ₦1,500</span>
+                                                </label>
+                                            </div>
+                                            <div class="flex items-center">
+                                                <input type="radio" id="express-delivery" name="delivery-method"
+                                                    class="h-4 w-4 text-primary focus:ring-primary border-gray-600 bg-dark-600">
+                                                <label for="express-delivery" class="ml-2">
+                                                    <span class="text-white">Express Delivery</span>
+                                                    <span class="text-gray-400 text-sm">1-2 business days •
+                                                        ₦3,500</span>
+                                                </label>
+                                            </div>
+                                            <div class="flex items-center">
+                                                <input type="radio" id="pickup-delivery" name="delivery-method"
+                                                    class="h-4 w-4 text-primary focus:ring-primary border-gray-600 bg-dark-600">
+                                                <label for="pickup-delivery" class="ml-2">
+                                                    <span class="text-white">Pickup Station</span>
+                                                    <span class="text-gray-400 text-sm">Pick up within 24 hours •
+                                                        ₦500</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <p class="mt-3 text-sm text-gray-400" id="estimated-delivery">Estimated delivery:
+                                            <span class="text-white">July 28, 2023</span>
+                                        </p>
+                                    </div>
+                                </div>
+                                <!-- Delivery Notes -->
+                                <div class="mt-6">
+                                    <label for="delivery-notes"
+                                        class="text-sm font-medium text-gray-300 mb-2">Delivery Instructions
+                                        (Optional)</label>
+                                    <textarea id="delivery-notes" rows="3"
+                                        class="w-full bg-dark-600 border border-gray-600 rounded-md py-2 px-3 text-white focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary"
+                                        placeholder="e.g. Leave with security if I'm not home"></textarea>
+                                </div>
+                            </div>
+    
+                            <!-- Address Edit Modal (Hidden by Default) -->
+                            <div id="address-modal"
+                                class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 hidden">
+                                <div class="bg-dark-800 rounded-lg max-w-md w-full p-6">
+                                    <div class="flex justify-between items-center mb-4">
+                                        <h3 class="text-lg font-semibold">Edit Delivery Address</h3>
+                                        <button id="close-modal" class="text-gray-400 hover:text-white">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                                                viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M6 18L18 6M6 6l12 12" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <form id="address-form" class="space-y-4">
+                                        <div>
+                                            <label for="full-name" class="text-sm font-medium text-gray-300 mb-1">Full
+                                                Name</label>
+                                            <input type="text" id="full-name"
+                                                class="w-full bg-dark-700 border border-gray-600 rounded-md py-2 px-3 text-white focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary"
+                                                value="John Doe">
+                                        </div>
+                                        <div>
+                                            <label for="street-address"
+                                                class="text-sm font-medium text-gray-300 mb-1">Street Address</label>
+                                            <input type="text" id="street-address"
+                                                class="w-full bg-dark-700 border border-gray-600 rounded-md py-2 px-3 text-white focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary"
+                                                value="123 Education Street">
+                                        </div>
+                                        <div class="grid grid-cols-2 gap-4">
+                                            <div>
+                                                <label for="city"
+                                                    class="text-sm font-medium text-gray-300 mb-1">City</label>
+                                                <input type="text" id="city"
+                                                    class="w-full bg-dark-700 border border-gray-600 rounded-md py-2 px-3 text-white focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary"
+                                                    value="Lagos Island">
+                                            </div>
+                                            <div>
+                                                <label for="state"
+                                                    class="text-sm font-medium text-gray-300 mb-1">State</label>
+                                                <select id="state"
+                                                    class="w-full bg-dark-700 border border-gray-600 rounded-md py-2 px-3 text-white focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary">
+                                                    <option>Lagos</option>
+                                                    <option>Abuja</option>
+                                                    <option>Rivers</option>
+                                                    <option>Kano</option>
+                                                    <option>Oyo</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <label for="phone-number"
+                                                class="text-sm font-medium text-gray-300 mb-1">Phone Number</label>
+                                            <input type="tel" id="phone-number"
+                                                class="w-full bg-dark-700 border border-gray-600 rounded-md py-2 px-3 text-white focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary"
+                                                value="+2348123456789">
+                                        </div>
+                                        <div class="flex justify-end space-x-3 pt-4">
+                                            <button type="button" id="cancel-edit"
+                                                class="px-4 py-2 border border-gray-600 rounded-md text-white hover:bg-dark-600">Cancel</button>
+                                            <button type="submit"
+                                                class="px-4 py-2 bg-primary hover:bg-primary-dark rounded-md text-white">Save
+                                                Changes</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+    
+                            <div class="mb-8">
+                                <h3 class="text-lg font-semibold text-dark-700 dark:text-gray-300 mb-4">Payment Method</h3>
+                                <div class="space-y-3">
+                                    <div class="method-option selected" onclick="selectPaymentMethod('card')">
+                                        <input type="radio" id="card" name="payment" checked>
+                                        <label for="card" class="cursor-pointer">
+                                            <strong>Credit/Debit Card</strong><br>
+                                            <span>Pay with Visa, Mastercard, or Verve</span>
+                                        </label>
+                                    </div>
+                                    <div class="method-option" onclick="selectPaymentMethod('bank')">
+                                        <input type="radio" id="bank" name="payment">
+                                        <label for="bank" class="cursor-pointer">
+                                            <strong>Bank Transfer</strong><br>
+                                            <span>Make direct transfer to our account</span>
+                                        </label>
+                                    </div>
+                                    <div class="method-option" onclick="selectPaymentMethod('ussd')">
+                                        <input type="radio" id="ussd" name="payment">
+                                        <label for="ussd" class="cursor-pointer">
+                                            <strong>USSD</strong><br>
+                                            <span>Pay directly from your mobile phone</span>
+                                        </label>
+                                    </div>
+                                </div>
+    
+                                <!-- Card Payment Details -->
+                                <div id="card-payment" class="payment-method active mt-6">
+                                    <div class="mb-4">
+                                        <label for="card-number"
+                                            class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Card
+                                            Number</label>
+                                        <input type="text" id="card-number"
+                                            class="form-input dark:bg-dark-700 dark:border-dark-600"
+                                            placeholder="1234 5678 9012 3456">
+                                    </div>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                        <div>
+                                            <label for="expiry"
+                                                class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Expiry
+                                                Date</label>
+                                            <input type="text" id="expiry"
+                                                class="form-input dark:bg-dark-700 dark:border-dark-600"
+                                                placeholder="MM/YY">
+                                        </div>
+                                        <div>
+                                            <label for="cvv"
+                                                class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">CVV</label>
+                                            <input type="text" id="cvv"
+                                                class="form-input dark:bg-dark-700 dark:border-dark-600" placeholder="123">
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <input type="checkbox" id="save-card" class="mr-2">
+                                        <label for="save-card" class="text-sm text-gray-600 dark:text-gray-400">Save card
+                                            for future payments</label>
+                                    </div>
+                                </div>
+    
+                                <!-- Bank Transfer Details -->
+                                <div id="bank-payment" class="payment-method mt-6">
+                                    <p class="text-gray-600 dark:text-gray-400 mb-4">Make payment to:</p>
+                                    <div class="bg-gray-50 dark:bg-dark-700 p-4 rounded-lg mb-4">
+                                        <p class="font-medium">Bank Name: Zenith Bank</p>
+                                        <p class="font-medium">Account Name: SmartBooks Nigeria Ltd</p>
+                                        <p class="font-medium">Account Number: 1012345678</p>
+                                    </div>
+                                    <p class="text-gray-600 dark:text-gray-400">After payment, please send proof of payment
+                                        to payments@smartbooks.ng</p>
+                                </div>
+    
+                                <!-- USSD Payment Details -->
+                                <div id="ussd-payment" class="payment-method mt-6">
+                                    <p class="text-gray-600 dark:text-gray-400 mb-4">Dial *123*1# on your mobile phone to
+                                        complete payment</p>
+                                    <p class="text-gray-600 dark:text-gray-400">You will receive a confirmation SMS with
+                                        your activation keys</p>
+                                </div>
+                            </div>
+    
+                            <div class="flex items-center mb-6">
+                                <input type="checkbox" id="terms" class="mr-2" required>
+                                <label for="terms" class="text-sm text-gray-600 dark:text-gray-400">I agree to the <a
+                                        href="#" class="text-primary hover:underline">Terms of Service</a> and <a href="#"
+                                        class="text-primary hover:underline">Privacy Policy</a></label>
+                            </div>
+    
+                            <button class="btn-primary w-full py-3" onclick="proceedToPayment()"><a
+                                    href="payment.html">Proceed to Payment</a></button>
+                        </div>
+    
+                        <div class="bg-white dark:bg-dark-800 rounded-lg shadow-md p-6">
+                            <h3 class="text-lg font-semibold text-dark-700 dark:text-gray-300 mb-4">Need Help?</h3>
+                            <p class="text-gray-600 dark:text-gray-400 mb-4">Contact our support team for assistance with
+                                your order:</p>
+                            <div class="flex items-center mb-2">
+                                <svg class="w-5 h-5 text-gray-500 dark:text-gray-400 mr-2" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                                    </path>
+                                </svg>
+                                <span>support@smartbooks.ng</span>
+                            </div>
+                            <div class="flex items-center">
+                                <svg class="w-5 h-5 text-gray-500 dark:text-gray-400 mr-2" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z">
+                                    </path>
+                                </svg>
+                                <span>+234 800 123 4567</span>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <!-- Right Column - Order Summary -->
+                    <div class="lg:col-span-1">
+                        <div class="order-summary-card bg-white dark:bg-dark-800 rounded-lg shadow-md p-6">
+                            <h2 class="text-xl font-bold text-dark-800 dark:text-white mb-6">Order Summary</h2>
+    
+                            <div class="flex justify-between items-center mb-4">
+                                <span class="text-gray-600 dark:text-gray-400">Product</span>
+                                <span class="text-gray-600 dark:text-gray-400">Total</span>
+                            </div>
+    
+                            <div class="border-b border-gray-200 dark:border-dark-700 mb-4"></div>
+    
+                            <div class="mb-4">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="font-medium">SmartBooks Basic</span>
+                                    <span class="font-medium">₦5,000</span>
+                                </div>
+                                <div
+                                    class="flex justify-between items-center text-sm text-gray-500 dark:text-gray-400 mb-2">
+                                    <span>× 1 device</span>
+                                    <span>₦5,000</span>
+                                </div>
+                            </div>
+    
+                            <div class="flex justify-between items-center mb-6">
+                                <span class="font-bold text-lg">Total</span>
+                                <span class="font-bold text-lg text-primary">₦5,000</span>
+                            </div>
+    
+                        <!--     <div class="mb-4">
+                                <label for="promo-code"
+                                    class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Promo
+                                    Code</label>
+                                <div class="flex">
+                                    <input type="text" id="promo-code"
+                                        class="form-input dark:bg-dark-700 dark:border-dark-600 rounded-r-none"
+                                        placeholder="Enter code">
+                                    <button class="btn-outline rounded-l-none px-4">Apply</button>
+                                </div>
+                            </div> -->
+    
+                            <div
+                                class="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4">
+                                <div class="flex items-start">
+                                    <svg class="w-5 h-5 text-blue-600 dark:text-blue-400 mt-0.5 mr-2" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                    <div>
+                                        <p class="text-sm text-blue-700 dark:text-blue-300">Your activation keys will be
+                                            emailed to you immediately after payment confirmation.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Print Styles -->
+            <style>
+                @media print {
+                    body * {
+                        visibility: hidden;
+                    }
+    
+                    .confirmation-section,
+                    .confirmation-section * {
+                        visibility: visible;
+                    }
+    
+                    .confirmation-section {
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        width: 100%;
+                        background: white;
+                        color: black;
+                    }
+    
+                    .no-print {
+                        display: none;
+                    }
+                }
+            </style>
+        </main>
+        <footer class="Fdata-visualization-software-footer wraper_footer custom-footer">
+            <div data-elementor-type="section" data-elementor-id="987" class="elementor elementor-987">
+                <section
+                    class="elementor-section elementor-top-section elementor-element elementor-element-07d1a58 elementor-section-stretched elementor-section-boxed elementor-section-height-default elementor-section-height-default"
+                    data-id="07d1a58" data-element_type="section"
+                    data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;stretch_section&quot;:&quot;section-stretched&quot;}">
+                    <div class="elementor-background-overlay"></div>
+                    <div class="elementor-container elementor-column-gap-default">
+                        <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-541d6c0"
+                            data-id="541d6c0" data-element_type="column">
+                            <div class="elementor-widget-wrap elementor-element-populated">
+                                <div class="elementor-element elementor-element-283780d elementor-widget__width-initial elementor-absolute elementor-hidden-tablet elementor-hidden-mobile elementor-widget elementor-widget-image"
+                                    data-id="283780d" data-element_type="widget"
+                                    data-settings="{&quot;_position&quot;:&quot;absolute&quot;}"
+                                    data-widget_type="image.default">
+                                    <div class="elementor-widget-container">
+                                        <img data-lazyloaded="1" data-placeholder-resp="1748x219"
+                                            src="images/vector-line.webp" width="1748" height="219"
+                                            class="attachment-full size-full" alt="Curve Line"
+                                            data-sizes="(max-width: 1748px) 100vw, 1748px" />
+                                    </div>
+                                </div>
+                                <section
+                                    class="elementor-section elementor-inner-section elementor-element elementor-element-4e4553b footer-inner elementor-section-boxed elementor-section-height-default elementor-section-height-default"
+                                    data-id="4e4553b" data-element_type="section">
+                                    <div class="elementor-background-overlay"></div>
+                                    <div class="elementor-container elementor-column-gap-default">
+                                        <div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-c40abf1"
+                                            data-id="c40abf1" data-element_type="column">
+                                            <div class="elementor-widget-wrap elementor-element-populated">
+                                                <div class="elementor-element elementor-element-43ae677 elementor-widget elementor-widget-image"
+                                                    data-id="43ae677" data-element_type="widget"
+                                                    data-widget_type="image.default">
+                                                    <div class="elementor-widget-container">
+                                                        <img src="images/logo.png"
+                                                            style="max-height: 35px; width: auto;" title="logo-white"
+                                                            alt="Logo White" />
+                                                    </div>
+                                                </div>
+                                                <div class="elementor-element elementor-element-4b189fd elementor-widget elementor-widget-text-editor"
+                                                    data-id="4b189fd" data-element_type="widget"
+                                                    data-widget_type="text-editor.default">
+                                                    <div class="elementor-widget-container">
+                                                        SmartBooks Support</div>
+                                                </div>
+                                                <div class="elementor-element elementor-element-8fc0c14 elementor-widget elementor-widget-text-editor"
+                                                    data-id="8fc0c14" data-element_type="widget"
+                                                    data-widget_type="text-editor.default">
+                                                    <div class="elementor-widget-container">
+                                                        info@smartbooks.ng</div>
+                                                </div>
+                                                <div class="elementor-element elementor-element-0296548 elementor-absolute elementor-view-default elementor-widget elementor-widget-icon"
+                                                    data-id="0296548" data-element_type="widget"
+                                                    data-settings="{&quot;_position&quot;:&quot;absolute&quot;}"
+                                                    data-widget_type="icon.default">
+                                                    <div class="elementor-widget-container">
+                                                        <div class="elementor-icon-wrapper">
+                                                            <div class="elementor-icon">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="10"
+                                                                    height="10" viewBox="0 0 10 10" fill="none">
+                                                                    <circle cx="5" cy="5" r="5" fill="#F1A431"></circle>
+                                                                </svg>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-63d3766"
+                                            data-id="63d3766" data-element_type="column">
+                                            <div class="elementor-widget-wrap elementor-element-populated">
+                                                <div class="elementor-element elementor-element-5030de8 elementor-widget elementor-widget-heading"
+                                                    data-id="5030de8" data-element_type="widget"
+                                                    data-widget_type="heading.default">
+                                                    <div class="elementor-widget-container">
+                                                        <div class="elementor-heading-title elementor-size-default">
+                                                            Quick Links</div>
+                                                    </div>
+                                                </div>
+                                                <div class="elementor-element elementor-element-0f31160 elementor-align-left elementor-icon-list--layout-inline elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list"
+                                                    data-id="0f31160" data-element_type="widget"
+                                                    data-widget_type="icon-list.default">
+                                                    <div class="elementor-widget-container">
+                                                        <ul class="elementor-icon-list-items elementor-inline-items">
+                                                            <li class="elementor-icon-list-item elementor-inline-item">
+                                                                <a href="index.html"><span
+                                                                        class="elementor-icon-list-text">Home</span>
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="elementor-element elementor-element-0234860 elementor-align-left elementor-icon-list--layout-inline elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list"
+                                                    data-id="0234860" data-element_type="widget"
+                                                    data-widget_type="icon-list.default">
+                                                    <div class="elementor-widget-container">
+                                                        <ul class="elementor-icon-list-items elementor-inline-items">
+                                                            <li class="elementor-icon-list-item elementor-inline-item">
+                                                                <a href="contact.html"><span class="elementor-icon-list-text">Contact</span>
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="elementor-element elementor-element-43f3ed4 elementor-align-left elementor-icon-list--layout-inline elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list"
+                                                    data-id="43f3ed4" data-element_type="widget"
+                                                    data-widget_type="icon-list.default">
+                                                    <div class="elementor-widget-container">
+                                                        <ul class="elementor-icon-list-items elementor-inline-items">
+                                                            <li class="elementor-icon-list-item elementor-inline-item">
+                                                                <a href="order.html"><span
+                                                                        class="elementor-icon-list-text">Sign Up</span>
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-4e2d73f"
+                                            data-id="4e2d73f" data-element_type="column">
+                                            <div class="elementor-widget-wrap elementor-element-populated">
+                                                <div class="elementor-element elementor-element-4a0e888 elementor-widget elementor-widget-heading"
+                                                    data-id="4a0e888" data-element_type="widget"
+                                                    data-widget_type="heading.default">
+                                                    <div class="elementor-widget-container">
+                                                        <div class="elementor-heading-title elementor-size-default">
+                                                            Company</div>
+                                                    </div>
+                                                </div>
+                                                <div class="elementor-element elementor-element-d8e6529 elementor-align-left elementor-icon-list--layout-inline elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list"
+                                                    data-id="d8e6529" data-element_type="widget"
+                                                    data-widget_type="icon-list.default">
+                                                    <div class="elementor-widget-container">
+                                                        <ul class="elementor-icon-list-items elementor-inline-items">
+                                                            <li class="elementor-icon-list-item elementor-inline-item">
+                                                                <a
+                                                                    href="features.html"><span
+                                                                        class="elementor-icon-list-text">Features</span>
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="elementor-element elementor-element-e508486 elementor-align-left elementor-icon-list--layout-inline elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list"
+                                                    data-id="e508486" data-element_type="widget"
+                                                    data-widget_type="icon-list.default">
+                                                    <div class="elementor-widget-container">
+                                                        <ul class="elementor-icon-list-items elementor-inline-items">
+                                                            <li class="elementor-icon-list-item elementor-inline-item">
+                                                                <a href="order.html"><span
+                                                                        class="elementor-icon-list-text">Order</span>
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="elementor-element elementor-element-b53117b elementor-align-left elementor-icon-list--layout-inline elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list"
+                                                    data-id="b53117b" data-element_type="widget"
+                                                    data-widget_type="icon-list.default">
+                                                    <div class="elementor-widget-container">
+                                                        <ul class="elementor-icon-list-items elementor-inline-items">
+                                                            <li class="elementor-icon-list-item elementor-inline-item">
+                                                                <a
+                                                                    href="https://apptek.radiantthemes.com/masonry-creative/"><span
+                                                                        class="elementor-icon-list-text">Portfolio</span>
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>                        
+                                            </div>
+                                        </div>
+                                        <div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-53a1c5e"
+                                            data-id="53a1c5e" data-element_type="column">
+                                            <div class="elementor-widget-wrap elementor-element-populated">
+                                                <div class="elementor-element elementor-element-9530e77 elementor-widget elementor-widget-heading"
+                                                    data-id="9530e77" data-element_type="widget"
+                                                    data-widget_type="heading.default">
+                                                    <div class="elementor-widget-container">
+                                                        <div class="elementor-heading-title elementor-size-default">Get
+                                                            In Touch</div>
+                                                    </div>
+                                                </div>
+                                                <div class="elementor-element elementor-element-c0115c0 elementor-widget elementor-widget-text-editor"
+                                                    data-id="c0115c0" data-element_type="widget"
+                                                    data-widget_type="text-editor.default">
+                                                    <div class="elementor-widget-container">
+                                                        We value your interest and welcome the opportunity to assist you.
+                                                        Please contact us via the provided details, and a member of our team will respond promptly.
+                                                    </div>
+                                                </div>
+                                                <div class="elementor-element elementor-element-943bc58 elementor-shape-circle elementor-grid-0 elementor-widget elementor-widget-social-icons"
+                                                    data-id="943bc58" data-element_type="widget"
+                                                    data-widget_type="social-icons.default">
+                                                    <div class="elementor-widget-container">
+                                                        <div class="elementor-social-icons-wrapper elementor-grid">
+                                                            <span class="elementor-grid-item">
+                                                                <a class="elementor-icon elementor-social-icon elementor-social-icon-Facebook elementor-repeater-item-c7bb504"
+                                                                    href="#" target="_blank">
+                                                                    <span class="elementor-screen-only">Facebook</span>
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                                                        height="24" viewBox="0 0 24 24" fill=""
+                                                                        stroke="none" stroke-width="0"
+                                                                        stroke-linecap="round" stroke-linejoin="round"
+                                                                        class="feather feather-facebook">
+                                                                        <path
+                                                                            d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z">
+                                                                        </path>
+                                                                    </svg> </a>
+                                                            </span>
+                                                            <span class="elementor-grid-item">
+                                                                <a class="elementor-icon elementor-social-icon elementor-social-icon-Twitter elementor-repeater-item-96ae0df"
+                                                                    href="#" target="_blank">
+                                                                    <span class="elementor-screen-only">Twitter</span>
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                                                        height="24" viewBox="0 0 24 24" fill=""
+                                                                        stroke="none" stroke-width="0"
+                                                                        stroke-linecap="round" stroke-linejoin="round"
+                                                                        class="feather feather-twitter">
+                                                                        <path
+                                                                            d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z">
+                                                                        </path>
+                                                                    </svg> </a>
+                                                            </span>
+                                                            <span class="elementor-grid-item">
+                                                                <a class="elementor-icon elementor-social-icon elementor-social-icon-Linked In elementor-repeater-item-276fbce"
+                                                                    href="#" target="_blank">
+                                                                    <span class="elementor-screen-only">Linked In</span>
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                                                        height="24" viewBox="0 0 24 24" fill=""
+                                                                        stroke="none" stroke-width="0"
+                                                                        stroke-linecap="round" stroke-linejoin="round"
+                                                                        class="feather feather-linkedin">
+                                                                        <path
+                                                                            d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
+                                                                        </path>
+                                                                        <rect x="2" y="9" width="4" height="12"></rect>
+                                                                        <circle cx="4" cy="4" r="2"></circle>
+                                                                    </svg> </a>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                                <section
+                                    class="elementor-section elementor-inner-section elementor-element elementor-element-7a335d2 elementor-section-boxed elementor-section-height-default elementor-section-height-default"
+                                    data-id="7a335d2" data-element_type="section">
+                                    <div class="elementor-container elementor-column-gap-default">
+                                        <div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-fd51996"
+                                            data-id="fd51996" data-element_type="column">
+                                            <div class="elementor-widget-wrap elementor-element-populated">
+                                                <div class="elementor-element elementor-element-b6ef0d5 elementor-widget elementor-widget-text-editor"
+                                                    data-id="b6ef0d5" data-element_type="widget"
+                                                    data-widget_type="text-editor.default">
+                                                    <div class="elementor-widget-container">
+                                                        &copy; www.smartbooks.ng
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </footer>
+    </div>
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Order Page JavaScript
+        document.addEventListener('DOMContentLoaded', function () {
+            // Initialize order functionality
+            initializeOrderPage();
+            initializeThemeToggle();
+
+            function initializeOrderPage() {
+                // Product selection
+                const productCards = document.querySelectorAll('.product-card');
+                productCards.forEach(card => {
+                    card.addEventListener('click', function () {
+                        const radio = this.querySelector('input[type="radio"]');
+                        radio.checked = true;
+                        updateOrderSummary();
+                    });
+                });
+
+                // Quantity controls
+                const decreaseBtn = document.getElementById('decrease-qty');
+                const increaseBtn = document.getElementById('increase-qty');
+                const quantityInput = document.getElementById('quantity');
+
+                if (decreaseBtn) {
+                    decreaseBtn.addEventListener('click', function () {
+                        const currentValue = parseInt(quantityInput.value);
+                        if (currentValue > 1) {
+                            quantityInput.value = currentValue - 1;
+                            updateOrderSummary();
+                        }
+                    });
+                }
+
+                if (increaseBtn) {
+                    increaseBtn.addEventListener('click', function () {
+                        const currentValue = parseInt(quantityInput.value);
+                        quantityInput.value = currentValue + 1;
+                        updateOrderSummary();
+                    });
+                }
+
+                if (quantityInput) {
+                    quantityInput.addEventListener('change', function () {
+                        if (this.value < 1) this.value = 1;
+                        updateOrderSummary();
+                    });
+                }
+
+                // Payment method selection
+                const paymentMethods = document.querySelectorAll('.method-option');
+                paymentMethods.forEach(method => {
+                    method.addEventListener('click', function () {
+                        // Remove selected class from all methods
+                        paymentMethods.forEach(m => m.classList.remove('selected'));
+                        // Add selected class to clicked method
+                        this.classList.add('selected');
+                        // Check the radio button
+                        const radio = this.querySelector('input[type="radio"]');
+                        if (radio) radio.checked = true;
+                    });
+                });
+
+                // Promo code application
+                const promoBtn = document.querySelector('.btn-outline');
+                if (promoBtn) {
+                    promoBtn.addEventListener('click', function () {
+                        const promoCode = document.getElementById('promo-code').value.trim();
+                        if (promoCode) {
+                            applyPromoCode(promoCode);
+                        }
+                    });
+                }
+
+                // Initialize order summary
+                updateOrderSummary();
+            }
+
+            function updateOrderSummary() {
+                const selectedProduct = document.querySelector('input[name="product"]:checked');
+                const quantity = parseInt(document.getElementById('quantity').value) || 1;
+
+                if (!selectedProduct) return;
+
+                const productCard = selectedProduct.closest('.product-card');
+                const productName = productCard.querySelector('label').textContent;
+                const priceText = productCard.querySelector('.text-primary').textContent;
+                const price = parseInt(priceText.replace(/[₦,]/g, ''));
+
+                const subtotal = price * quantity;
+                const discount = 0; // You can implement discount logic here
+                const tax = 0; // No tax for now
+                const total = subtotal - discount + tax;
+
+                // Update order summary display
+                const summaryElements = {
+                    productName: document.querySelector('.order-summary-card .font-medium'),
+                    productPrice: document.querySelector('.order-summary-card .font-medium + span'),
+                    quantity: document.querySelector('.order-summary-card .text-sm .text-gray-500'),
+                    quantityPrice: document.querySelector('.order-summary-card .text-sm + span'),
+                    subtotal: document.querySelector('.order-summary-card .mb-4 .text-gray-600:first-child + span'),
+                    discount: document.querySelector('.order-summary-card .text-green-600'),
+                    tax: document.querySelector('.order-summary-card .mb-4 .text-gray-600:last-child + span'),
+                    total: document.querySelector('.order-summary-card .text-primary')
+                };
+
+                if (summaryElements.productName) summaryElements.productName.textContent = productName;
+                if (summaryElements.productPrice) summaryElements.productPrice.textContent = `₦${price.toLocaleString()}`;
+                if (summaryElements.quantity) summaryElements.quantity.textContent = `× ${quantity} device${quantity > 1 ? 's' : ''}`;
+                if (summaryElements.quantityPrice) summaryElements.quantityPrice.textContent = `₦${subtotal.toLocaleString()}`;
+                if (summaryElements.subtotal) summaryElements.subtotal.textContent = `₦${subtotal.toLocaleString()}`;
+                if (summaryElements.discount) summaryElements.discount.textContent = `-₦${discount.toLocaleString()}`;
+                if (summaryElements.tax) summaryElements.tax.textContent = `₦${tax.toLocaleString()}`;
+                if (summaryElements.total) summaryElements.total.textContent = `₦${total.toLocaleString()}`;
+            }
+
+            function applyPromoCode(code) {
+                // Simple promo code logic - you can expand this
+                const validCodes = {
+                    'STUDENT10': 0.1,
+                    'WELCOME5': 0.05,
+                    'BULK20': 0.2
+                };
+
+                if (validCodes[code.toUpperCase()]) {
+                    const discount = validCodes[code.toUpperCase()];
+                    alert(`Promo code applied! You get ${discount * 100}% discount.`);
+                    // Update order summary with discount
+                    updateOrderSummary();
+                } else {
+                    alert('Invalid promo code. Please try again.');
+                }
+            }
+
+            function initializeThemeToggle() {
+                const themeToggle = document.getElementById('theme-toggle');
+                const themeToggleMobile = document.getElementById('theme-toggle-mobile');
+
+                function toggleTheme() {
+                    document.documentElement.classList.toggle('dark');
+                    const isDark = document.documentElement.classList.contains('dark');
+                    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+                }
+
+                // Load saved theme
+                const savedTheme = localStorage.getItem('theme');
+                if (savedTheme === 'dark') {
+                    document.documentElement.classList.add('dark');
+                    if (themeToggle) themeToggle.checked = true;
+                    if (themeToggleMobile) themeToggleMobile.checked = true;
+                }
+
+                if (themeToggle) {
+                    themeToggle.addEventListener('change', toggleTheme);
+                }
+
+                if (themeToggleMobile) {
+                    themeToggleMobile.addEventListener('change', toggleTheme);
+                }
+            }
+        });
+
+        // Global functions that are called from HTML
+        function selectPaymentMethod(method) {
+            // Hide all payment method details
+            const paymentMethods = document.querySelectorAll('.payment-method');
+            paymentMethods.forEach(pm => pm.classList.remove('active'));
+
+            // Show selected payment method
+            const selectedMethod = document.getElementById(`${method}-payment`);
+            if (selectedMethod) {
+                selectedMethod.classList.add('active');
+            }
+
+            // Update method option styling
+            const methodOptions = document.querySelectorAll('.method-option');
+            methodOptions.forEach(option => option.classList.remove('selected'));
+
+            const selectedOption = document.querySelector(`#${method}`).closest('.method-option');
+            if (selectedOption) {
+                selectedOption.classList.add('selected');
+            }
+        }
+
+        function proceedToPayment() {
+            // Validate form
+            if (!validateOrderForm()) {
+                return;
+            }
+
+            // Collect order data
+            const orderData = collectOrderData();
+
+            // Store order data for payment processing
+            localStorage.setItem('currentOrder', JSON.stringify(orderData));
+
+            // Update progress tracker
+            updateProgressTracker(2);
+
+            // Show payment section (you can scroll to it or show it)
+            const paymentSection = document.querySelector('.bg-dark-800');
+            if (paymentSection) {
+                paymentSection.scrollIntoView({ behavior: 'smooth' });
+            }
+
+            // Update payment totals
+            updatePaymentTotals(orderData.total);
+
+            alert('Proceeding to payment...');
+        }
+
+        function validateOrderForm() {
+            let isValid = true;
+            const requiredFields = [
+                'first-name',
+                'last-name',
+                'email',
+                'phone',
+                'state'
+            ];
+
+            // Check required fields
+            requiredFields.forEach(fieldId => {
+                const field = document.getElementById(fieldId);
+                if (!field || !field.value.trim()) {
+                    if (field) {
+                        field.classList.add('border-red-500');
+                        field.focus();
+                    }
+                    isValid = false;
+                } else {
+                    field.classList.remove('border-red-500');
+                }
+            });
+
+            // Validate email format
+            const email = document.getElementById('email');
+            if (email && email.value) {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(email.value)) {
+                    email.classList.add('border-red-500');
+                    isValid = false;
+                }
+            }
+
+            // Validate phone number
+            const phone = document.getElementById('phone');
+            if (phone && phone.value) {
+                const phoneRegex = /^[0-9]{11}$/;
+                if (!phoneRegex.test(phone.value.replace(/\s/g, ''))) {
+                    phone.classList.add('border-red-500');
+                    isValid = false;
+                }
+            }
+
+            // Check if terms are accepted
+            const terms = document.getElementById('terms');
+            if (!terms || !terms.checked) {
+                alert('Please accept the Terms of Service and Privacy Policy to continue.');
+                isValid = false;
+            }
+
+            if (!isValid) {
+                alert('Please fill in all required fields correctly.');
+            }
+
+            return isValid;
+        }
+
+        function collectOrderData() {
+            const selectedProduct = document.querySelector('input[name="product"]:checked');
+            const quantity = parseInt(document.getElementById('quantity').value) || 1;
+
+            const productCard = selectedProduct.closest('.product-card');
+            const productName = productCard.querySelector('label').textContent;
+            const priceText = productCard.querySelector('.text-primary').textContent;
+            const price = parseInt(priceText.replace(/[₦,]/g, ''));
+
+            const subtotal = price * quantity;
+            const tax = subtotal * 0.075; // 7.5% tax
+            const total = subtotal + tax;
+
+            return {
+                product: {
+                    name: productName,
+                    price: price,
+                    quantity: quantity
+                },
+                customer: {
+                    firstName: document.getElementById('first-name').value,
+                    lastName: document.getElementById('last-name').value,
+                    email: document.getElementById('email').value,
+                    phone: document.getElementById('phone').value,
+                    state: document.getElementById('state').value
+                },
+                payment: {
+                    method: document.querySelector('input[name="payment"]:checked').id
+                },
+                subtotal: subtotal,
+                tax: tax,
+                total: total,
+                timestamp: new Date().toISOString()
+            };
+        }
+
+        function updateProgressTracker(step) {
+            const steps = document.querySelectorAll('.step');
+            steps.forEach((stepEl, index) => {
+                if (index < step) {
+                    stepEl.classList.add('active');
+                } else {
+                    stepEl.classList.remove('active');
+                }
+            });
+        }
+
+        function updatePaymentTotals(total) {
+            const subtotal = total / 1.075; // Remove tax to get subtotal
+            const tax = total - subtotal;
+
+            const elements = {
+                subtotal: document.getElementById('order-subtotal'),
+                tax: document.getElementById('order-tax'),
+                total: document.getElementById('order-total'),
+                transferAmount: document.getElementById('transfer-amount'),
+                paymentTotal: document.getElementById('payment-total')
+            };
+
+            Object.keys(elements).forEach(key => {
+                if (elements[key]) {
+                    if (key === 'subtotal') {
+                        elements[key].textContent = `₦${Math.round(subtotal).toLocaleString()}`;
+                    } else if (key === 'tax') {
+                        elements[key].textContent = `₦${Math.round(tax).toLocaleString()}`;
+                    } else {
+                        elements[key].textContent = `₦${Math.round(total).toLocaleString()}`;
+                    }
+                }
+            });
+        }
+
+        // JavaScript for Delivery Section
+        function initializeDeliverySection() {
+            // DOM Elements
+            const editBtn = document.getElementById('edit-address-btn');
+            const addressModal = document.getElementById('address-modal');
+            const closeModal = document.getElementById('close-modal');
+            const cancelEdit = document.getElementById('cancel-edit');
+            const addressForm = document.getElementById('address-form');
+
+            // Calculate estimated delivery date
+            function updateDeliveryDate(method) {
+                const deliveryDate = new Date();
+                let daysToAdd = 5; // Standard delivery
+
+                if (method === 'express-delivery') {
+                    daysToAdd = 2;
+                } else if (method === 'pickup-delivery') {
+                    daysToAdd = 1;
+                }
+
+                deliveryDate.setDate(deliveryDate.getDate() + daysToAdd);
+                const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+                const estimatedElement = document.getElementById('estimated-delivery');
+                if (estimatedElement) {
+                    estimatedElement.innerHTML = `Estimated delivery: <span class="text-white">${deliveryDate.toLocaleDateString('en-US', options)}</span>`;
+                }
+            }
+
+            // Initialize with standard delivery
+            updateDeliveryDate('standard-delivery');
+
+            // Handle delivery method changes
+            document.querySelectorAll('input[name="delivery-method"]').forEach(radio => {
+                radio.addEventListener('change', function () {
+                    updateDeliveryDate(this.id);
+                    updateOrderSummaryWithDelivery();
+                });
+            });
+
+            // Modal Handling
+            if (editBtn) {
+                editBtn.addEventListener('click', function () {
+                    if (addressModal) addressModal.classList.remove('hidden');
+                });
+            }
+
+            if (closeModal) {
+                closeModal.addEventListener('click', function () {
+                    if (addressModal) addressModal.classList.add('hidden');
+                });
+            }
+
+            if (cancelEdit) {
+                cancelEdit.addEventListener('click', function () {
+                    if (addressModal) addressModal.classList.add('hidden');
+                });
+            }
+
+            // Save Address Changes
+            if (addressForm) {
+                addressForm.addEventListener('submit', function (e) {
+                    e.preventDefault();
+
+                    // Get form values
+                    const fullName = document.getElementById('full-name').value;
+                    const streetAddress = document.getElementById('street-address').value;
+                    const city = document.getElementById('city').value;
+                    const state = document.getElementById('state').value;
+                    const phone = document.getElementById('phone-number').value;
+
+                    // Update displayed address
+                    const deliveryName = document.getElementById('delivery-name');
+                    const deliveryAddress = document.getElementById('delivery-address');
+                    const deliveryCityState = document.getElementById('delivery-city-state');
+                    const deliveryPhone = document.getElementById('delivery-phone');
+
+                    if (deliveryName) deliveryName.textContent = fullName;
+                    if (deliveryAddress) deliveryAddress.textContent = streetAddress;
+                    if (deliveryCityState) deliveryCityState.textContent = `${city}, ${state}`;
+                    if (deliveryPhone) deliveryPhone.textContent = `Phone: ${phone}`;
+
+                    // Save to localStorage
+                    const addressData = {
+                        fullName,
+                        streetAddress,
+                        city,
+                        state,
+                        phone
+                    };
+                    localStorage.setItem('deliveryAddress', JSON.stringify(addressData));
+
+                    // Close modal
+                    if (addressModal) addressModal.classList.add('hidden');
+
+                    alert('Delivery address updated successfully!');
+                });
+            }
+
+            // Load saved address if available
+            const savedAddress = JSON.parse(localStorage.getItem('deliveryAddress'));
+            if (savedAddress) {
+                const deliveryName = document.getElementById('delivery-name');
+                const deliveryAddress = document.getElementById('delivery-address');
+                const deliveryCityState = document.getElementById('delivery-city-state');
+                const deliveryPhone = document.getElementById('delivery-phone');
+
+                if (deliveryName) deliveryName.textContent = savedAddress.fullName;
+                if (deliveryAddress) deliveryAddress.textContent = savedAddress.streetAddress;
+                if (deliveryCityState) deliveryCityState.textContent = `${savedAddress.city}, ${savedAddress.state}`;
+                if (deliveryPhone) deliveryPhone.textContent = `Phone: ${savedAddress.phone}`;
+
+                // Update form fields
+                const fullNameField = document.getElementById('full-name');
+                const streetAddressField = document.getElementById('street-address');
+                const cityField = document.getElementById('city');
+                const stateField = document.getElementById('state');
+                const phoneField = document.getElementById('phone-number');
+
+                if (fullNameField) fullNameField.value = savedAddress.fullName;
+                if (streetAddressField) streetAddressField.value = savedAddress.streetAddress;
+                if (cityField) cityField.value = savedAddress.city;
+                if (stateField) stateField.value = savedAddress.state;
+                if (phoneField) phoneField.value = savedAddress.phone;
+            }
+
+            // Update order summary to include delivery costs
+            function updateOrderSummaryWithDelivery() {
+                const selectedDelivery = document.querySelector('input[name="delivery-method"]:checked');
+                let deliveryCost = 1500; // Default standard delivery
+
+                if (selectedDelivery) {
+                    switch (selectedDelivery.id) {
+                        case 'express-delivery':
+                            deliveryCost = 3500;
+                            break;
+                        case 'pickup-delivery':
+                            deliveryCost = 500;
+                            break;
+                        default:
+                            deliveryCost = 1500;
+                    }
+                }
+
+                // Update the main order summary
+                updateOrderSummary();
+
+                // Store delivery cost for later use
+                window.currentDeliveryCost = deliveryCost;
+            }
+
+            // Close modal when clicking outside
+            if (addressModal) {
+                addressModal.addEventListener('click', function (e) {
+                    if (e.target === addressModal) {
+                        addressModal.classList.add('hidden');
+                    }
+                });
+            }
+        }
+
+        // Initialize delivery section when DOM is loaded
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initializeDeliverySection);
+        } else {
+            initializeDeliverySection();
+        }
+    </script>
+    <script
+        type="speculationrules">{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"\/*"},{"not":{"href_matches":["\/wp-*.php","\/wp-admin\/*","\/wp-content\/uploads\/*","\/wp-content\/*","\/wp-content\/plugins\/*","\/wp-content\/themes\/apptek\/*","\/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}</script>
+    <link data-optimized="1" rel='stylesheet' id='elementor-post-1014-css'
+        href='images/1661689402971d9191f0651b7a524ee0d2a5.css?ver=6906b' media='all' />
+    <link data-optimized="1" rel='stylesheet' id='rt-menu-style-two-css'
+        href='images/04fbea04176c0e2ba324b1a6a01d93a95d5f.css?ver=8a358' media='all' />
+    <link data-optimized="1" rel='stylesheet' id='elementor-post-35648-css'
+        href='images/75a79d65d5e0203628c2e077fdc0323d04a4.css?ver=98815' media='all' />
+    <link data-optimized="1" rel='stylesheet' id='elementor-post-35792-css'
+        href='images/770929c51bbf2b729181f627e000de98b1c1.css?ver=8379b' media='all' />
+    <link data-optimized="1" rel='stylesheet' id='rt-heading-css'
+        href='images/0c128b03103945c1bd991762c38b8fbd1a4d.css?ver=1726e' media='all' />
+    <link rel='stylesheet' id='rt-button-style-four-css' href='images/button-style-four6470.css' media='all' />
+    <link data-optimized="1" rel='stylesheet' id='rt-testimonial-css'
+        href='images/555c05f1cad23151d2f491fc0cdb30111d88.css?ver=80440' media='all' />
+    <link rel='stylesheet' id='rt-accordion-css' href='images/rt-accordion6470.css' media='all' />
+    <link data-optimized="1" rel='stylesheet' id='elementor-post-987-css'
+        href='images/89054b2327bf534d551ffc497133cd3e6e7d.css?ver=10aba' media='all' />
+    
+    <script data-optimized="1" src="images/7a4958d262834fff1ef3c9b1b724f7a6ca99.js" defer></script>
+</body>
+
+</html>
